@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "apartments",
+  "info": {
+    "singularName": "apartment",
+    "pluralName": "apartments",
+    "displayName": "Apartment",
+    "description": "Ship apartment/residence"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["studio", "bed1", "bed2", "bed3", "penthouse"],
+      "required": true
+    },
+    "size": {
+      "type": "decimal"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "priceFrom": {
+      "type": "decimal"
+    },
+    "priceTo": {
+      "type": "decimal"
+    },
+    "monthlyFees": {
+      "type": "decimal"
+    },
+    "floorPlan": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images"]
+    },
+    "ship": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ship.ship",
+      "inversedBy": "apartments"
+    }
+  }
+}

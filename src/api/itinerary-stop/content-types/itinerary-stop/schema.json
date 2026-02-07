@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "itinerary_stops",
+  "info": {
+    "singularName": "itinerary-stop",
+    "pluralName": "itinerary-stops",
+    "displayName": "Itinerary Stop",
+    "description": "A stop on an itinerary"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "latitude": {
+      "type": "float",
+      "required": true
+    },
+    "longitude": {
+      "type": "float",
+      "required": true
+    },
+    "arrivalDate": {
+      "type": "date"
+    },
+    "departureDate": {
+      "type": "date"
+    },
+    "description": {
+      "type": "text"
+    },
+    "order": {
+      "type": "integer",
+      "required": true
+    },
+    "itinerary": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::itinerary.itinerary",
+      "inversedBy": "stops"
+    }
+  }
+}
